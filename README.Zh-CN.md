@@ -1,7 +1,7 @@
 <h1 align="center">Agarwood Cloud</h1>
 Agarwood 是一套私域流量的解决方案，基于微信、抖音等主流平台，对粉丝做好即时接待，助力商家做好客户服务和增长
 
-### 当前状态: Aplha
+### 当前状态: Alpha
 
 该项目还处于孵化和演进阶段，欢迎大家参与到 Agarwood 项目的建设中来！🎉🎉
 通过参与 Agarwood 项目，你可以：

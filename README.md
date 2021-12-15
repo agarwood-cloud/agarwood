@@ -3,7 +3,7 @@ Agarwood is a solution for private domain traffic, based on mainstream platforms
 
 > **[中文说明](README.Zh-CN.md)**
 
-### Project Status: Aplha
+### Project Status: Alpha
 
 The project is still in the incubation and evolution stage, and everyone is welcome to participate in the construction of the Agarwood project!🎉🎉
 By participating in the Agarwood project, you can：
