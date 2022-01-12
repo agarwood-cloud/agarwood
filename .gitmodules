@@ -1,0 +1,6 @@
+[submodule "agarwood.cloud.backend.subscriber"]
+	path = agarwood.cloud.backend.subscriber
+	url = git@github.com:agarwood-cloud/agarwood.cloud.backend.subscriber.git
+[submodule "agarwood.cloud.oauth.provider"]
+	path = agarwood.cloud.oauth.provider
+	url = git@github.com:agarwood-cloud/agarwood.cloud.oauth.provider.git
