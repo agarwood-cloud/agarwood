@@ -1,6 +1,12 @@
-[submodule "backend"]
+[submodule "agarwood.cloud.backend.subscriber"]
 	path = agarwood.cloud.backend.subscriber
 	url = git@github.com:agarwood-cloud/agarwood.cloud.backend.subscriber.git
-[submodule "oauth"]
+[submodule "agarwood.cloud.oauth.provider"]
 	path = agarwood.cloud.oauth.provider
 	url = git@github.com:agarwood-cloud/agarwood.cloud.oauth.provider.git
+[submodule "agarwood.cloud.chat.provider"]
+	path = agarwood.cloud.chat.provider
+	url = git@github.com:agarwood-cloud/agarwood.cloud.chat.provider.git
+[submodule "agarwood.cloud.user.provider"]
+	path = agarwood.cloud.user.provider
+	url = git@github.com:agarwood-cloud/agarwood.cloud.user.provider.git
