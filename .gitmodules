@@ -1,3 +1,0 @@
-[submodule "backend"]
-	path = agarwood.cloud.backend.subscriber
-	url = git@github.com:agarwood-cloud/agarwood.cloud.backend.subscriber.git
