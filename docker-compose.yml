@@ -1,0 +1,123 @@
+version: '3.9'
+services:
+  oauth:
+    # build: .
+    image: agarwood:2.0
+    command: ['php', '/var/www/agarwood/bin/agarwood', 'http:start']
+    container_name: agarwood-oauth
+    environment:
+      - APP_ENV=dev
+      - TIMEZONE=Asia/Shanghai
+    restart: always
+    env_file:
+      - agarwood.cloud.oauth.provider/.env
+    volumes:
+      - ./agarwood.cloud.oauth.provider:/var/www/agarwood
+    depends_on:
+      - redis
+      - mysql
+      - mongo
+    ports:
+      - "18306:18306"
+      - "18307:18307"
+    networks:
+      - agarwood_net
+  user:
+    # build: .
+    image: agarwood:2.0
+    command: ['php', '/var/www/agarwood/bin/agarwood', 'http:start']
+    container_name: agarwood-user
+    environment:
+      - APP_ENV=dev
+      - TIMEZONE=Asia/Shanghai
+    restart: always
+    env_file:
+      - agarwood.cloud.user.provider/.env
+    volumes:
+      - ./agarwood.cloud.user.provider:/var/www/agarwood
+    depends_on:
+      - redis
+      - mysql
+      - mongo
+    ports:
+      - "18316:18316"
+      - "18317:18317"
+    networks:
+      - agarwood_net
+  mall:
+    # build: .
+    image: agarwood:2.0
+    command: ['php', '/var/www/agarwood/bin/agarwood', 'http:start']
+    container_name: agarwood-mall
+    environment:
+      - APP_ENV=dev
+      - TIMEZONE=Asia/Shanghai
+    restart: always
+    env_file:
+      - agarwood.cloud.mall.provider/.env
+    volumes:
+      - ./agarwood.cloud.mall.provider:/var/www/agarwood
+    depends_on:
+      - redis
+      - mysql
+      - mongo
+    ports:
+      - "18326:18326"
+      - "18327:18327"
+    networks:
+      - agarwood_net
+  chat:
+    image: node:14-alpine
+    command: ['yarn', 'start:dev']
+    container_name: agarwood-chat
+    restart: always
+    volumes:
+      - ./agarwood.cloud.chat.provider:/var/www/agarwood
+    working_dir: /var/www/agarwood
+    depends_on:
+      - redis
+    ports:
+      - "4200:4200"
+      - "3000:3000"
+    networks:
+      - agarwood_net
+  redis:
+    image: "redis:6.2-alpine"
+    container_name: redis
+    restart: always
+    volumes:
+      - ./redis/data:/data
+      - ./redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./reids/logs:/logs
+    ports:
+      - "16379:6379"
+    networks:
+    - agarwood_net
+  mysql:
+    image: "mysql:8.0"
+    container_name: mysql
+    restart: always
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+    ports:
+      - "13306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=wumahooo
+    networks:
+      - agarwood_net
+  mongo:
+    image: "mongo:5.0"
+    container_name: mongo
+    ports:
+      - 37017:27017
+    volumes:
+      - ./mongodb/data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    networks:
+      - agarwood_net
+networks:
+  agarwood_net:
+    driver: bridge

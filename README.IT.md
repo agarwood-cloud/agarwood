@@ -22,6 +22,6 @@ agarwood 是参照领域驱动设计（Domain-Driven Design）的理念，并参
 
 [https://github.com/agarwood-cloud/agarwood](https://github.com/agarwood-cloud/agarwood) 欢迎大家关注并点star
 
-## 关键字
+## 鸣谢
 
 `Swoole(Swoft)`、`Micro Services`、`Domain Driven Design`、`Spring`、`Angular(DevUI)`、`Nest.js`
